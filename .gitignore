@@ -1,0 +1,36 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go toolchain
+.cache/
+
+# Dependencies
+/vendor/
+
+# Go workspace file
+go.work
+
+# Environment variables
+.env
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.bak
+
+# Operating System files
+.DS_Store
+thumbs.db
+
+# Logs
+*.log
+
+/tests/mocks/
