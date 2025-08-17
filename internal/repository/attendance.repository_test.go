@@ -16,29 +16,6 @@ import (
 	"payroll-system/internal/domain"
 )
 
-// --- Domain Models (for context, normally in their own package) ---
-
-// BaseModel provides common fields for all entities.
-type BaseModel struct {
-	ID        uuid.UUID      `gorm:"type:uuid;primaryKey;default:gen_random_uuid()" json:"id"`
-	CreatedAt time.Time      `json:"created_at"`
-	UpdatedAt time.Time      `json:"updated_at"`
-	DeletedAt gorm.DeletedAt `gorm:"index" json:"deleted_at,omitempty"`
-	CreatedBy uuid.UUID      `gorm:"type:uuid" json:"created_by"`
-	UpdatedBy uuid.UUID      `gorm:"type:uuid" json:"updated_by"`
-	IPAddress string         `gorm:"type:varchar(45)" json:"ip_address"` // IPv4 or IPv6
-}
-
-// Attendance records an employee's daily attendance.
-type Attendance struct {
-	domain.BaseModel
-	UserID          uuid.UUID  `gorm:"type:uuid;not null" json:"user_id"`
-	Date            time.Time  `gorm:"type:date;uniqueIndex:idx_user_date;not null" json:"date"`
-	CheckInTime     time.Time  `gorm:"type:time;not null" json:"check_in_time"`
-	CheckOutTime    time.Time  `gorm:"type:time;not null" json:"check_out_time"`
-	PayrollPeriodID *uuid.UUID `gorm:"type:uuid" json:"payroll_period_id,omitempty"`
-}
-
 // --- Test Suite Setup ---
 
 type AttendanceRepositorySuite struct {
