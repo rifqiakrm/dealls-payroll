@@ -15,7 +15,7 @@ import (
 	"go.uber.org/mock/gomock"
 
 	"payroll-system/internal/domain"
-	mockSvc "payroll-system/tests/mocks/service" // Assuming this is the correct path to your generated mock
+	mockSvc "payroll-system/tests/mocks/service"
 )
 
 // TestSubmitAttendance provides test coverage for the SubmitAttendance handler function.
